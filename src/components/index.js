@@ -14,11 +14,15 @@ class HistoryItems extends Component {
     this.setState({listDetails: listItems})
   }
 
-  render() {
-    // Remove the unnecessary destructuring of listItems from props
-    // const { listItems } = this.props;
+  deleteNotification = id => {
+    const {listDetails} = this.state
 
-    // Instead, directly use listDetails from state
+    const filtered = listDetails.filter(eachItem => eachItem.id !== id)
+
+    this.setState({listDetails: filtered})
+  }
+
+  render() {
     const {listDetails} = this.state
 
     return (
@@ -46,7 +50,11 @@ class HistoryItems extends Component {
         <div className="page-container">
           <ul className="page-list">
             {listDetails.map(eachItem => (
-              <ListItem listDetails={eachItem} key={eachItem.id} />
+              <ListItem
+                listDetails={eachItem}
+                key={eachItem.id}
+                deleteNotification={this.deleteNotification}
+              />
             ))}
           </ul>
         </div>

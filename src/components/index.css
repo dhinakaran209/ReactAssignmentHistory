@@ -15,7 +15,7 @@
 }
 
 .history-image {
-  width: 30%;
+  width: 100px;
 }
 
 .input-group {
@@ -39,12 +39,15 @@
 }
 
 .page-container {
-  box-shadow: black 10px;
   width: 100%;
-  padding: 5px;
+  padding: 0px 25px 25px 25px;
 }
 
 .page-list {
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
   list-style-type: none;
   margin-left: 1px;
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
 }

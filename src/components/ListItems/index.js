@@ -1,8 +1,12 @@
 import './index.css'
 
 const ListItem = props => {
-  const {listDetails} = props
+  const {listDetails, deleteNotification} = props
   const {id, timeAccessed, logoUrl, title, domainUrl} = listDetails
+
+  const deleteItem = () => {
+    deleteNotification(id)
+  }
 
   return (
     <li className="card">
@@ -14,11 +18,13 @@ const ListItem = props => {
           <p>{title}</p>
           <span>{domainUrl}</span>
         </div>
-        <img
-          className="delete"
-          alt="delete"
-          src="https://assets.ccbp.in/frontend/react-js/delete-img.png"
-        />
+        <button onClick={deleteItem}>
+          <img
+            className="delete"
+            alt="delete"
+            src="https://assets.ccbp.in/frontend/react-js/delete-img.png"
+          />
+        </button>
       </div>
     </li>
   )
